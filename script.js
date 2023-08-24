@@ -74,7 +74,7 @@ console.table(nameMap);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-let sortPeople = inventors.sort((person1, person2) => person1.year - person2.year);
+let sortPeople = inventors.sort((person1, person2) => (person1.year > person2.year ? 1 : -1));
 console.table(sortPeople);
 
 // Array.prototype.reduce()
@@ -89,6 +89,51 @@ console.table(sortAge);
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
+const boulevards = [
+  "Boulevards of Paris",
+  "City walls of Paris",
+  "Thiers wall",
+  "Wall of Charles V",
+  "Wall of Philip II Augustus",
+  "City gates of Paris",
+  "Haussmann's renovation of Paris",
+  "Boulevards of the Marshals",
+  "Boulevard Auguste-Blanqui",
+  "Boulevard Barbès",
+  "Boulevard Beaumarchais",
+  "Boulevard de l'Amiral-Bruix",
+  "Boulevard Mortier",
+  "Boulevard Poniatowski",
+  "Boulevard Soult",
+  "Boulevard des Capucines",
+  "Boulevard de la Chapelle",
+  "Boulevard de Clichy",
+  "Boulevard du Crime",
+  "Boulevard du Général-d'Armée-Jean-Simon",
+  "Boulevard Haussmann",
+  "Boulevard de l'Hôpital",
+  "Boulevard des Italiens",
+  "Boulevard Lefebvre",
+  "Boulevard de la Madeleine",
+  "Boulevard de Magenta",
+  "Boulevard Malesherbes",
+  "Boulevard Marguerite-de-Rochechouart",
+  "Boulevard Montmartre",
+  "Boulevard du Montparnasse",
+  "Boulevard Raspail",
+  "Boulevard Richard-Lenoir",
+  "Boulevard Saint-Germain",
+  "Boulevard Saint-Michel",
+  "Boulevard de Sébastopol",
+  "Boulevard de Strasbourg",
+  "Boulevard du Temple",
+  "Boulevard Voltaire",
+  "Boulevard de la Zone",
+];
+
+let getDe = boulevards.filter((blvd) => blvd.includes("de"));
+console.log(getDe);
+
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 let sortName = people.sort();
@@ -97,3 +142,13 @@ console.table(sortName);
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = ["car", "car", "truck", "truck", "bike", "walk", "car", "van", "bike", "walk", "car", "van", "car", "truck"];
+
+const sumUp = data.reduce((obj, itm) => {
+  if (!obj[itm]) {
+    obj[itm] = 0;
+  }
+  obj[itm]++;
+  return obj;
+}, {});
+
+console.log(sumUp);
